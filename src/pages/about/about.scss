@@ -1,0 +1,12 @@
+page-about{
+  .profile-image{
+    img{
+      border-radius:50%;
+      margin-top:10px;
+      border: 4px solid rgba(255,255,255,0.4);
+    }
+    p{
+      font-size: 30px;
+    }
+  }
+}
