@@ -1,16 +1,4 @@
-<<<<<<< HEAD
 <ion-content class="home-background">
-=======
-<ion-header>
-  <ion-navbar color="chosen">
-    <ion-title>
-      Love Call
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
->>>>>>> ad11450d2b0ad721e986497e91f9ff13bb74f12e
 	<ion-list>
     <img class="logo" src="assets/images/app-logo.png" alt="yellowcube" >
 	  <ion-item class="input-item">
@@ -23,17 +11,19 @@
 	    <ion-input type="password" [(ngModel)]="usercreds.password"></ion-input>
 	  </ion-item>
 
-    <button ion-item class="login-btn" (click)="login()" color="primary">
+    <button ion-item class="login-btn" (click)="login(usercreds)" color="primary">
       Login
     </button>
-
-		    <button ion-item class="login-btn" (click)="signup()" color="primary">
-		      Signup
-		    </button>
 
 
 	</ion-list>
   <div class="signup-link">
     <a href="#" [navPush]="signupPage">Or create new account</a>
+  </div>
+  <!--<div class="signup-link">
+		<a href="javascript:void(0);" (click)="signup()">Or create new account</a>
+  </div>-->
+	<div class="signup-link">
+		<a href="javascript:void(0);" (click)="fetchList()">Fetch Speakers</a>
   </div>
 </ion-content>

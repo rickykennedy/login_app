@@ -29,11 +29,11 @@ export class UserPage {
    }
    getinfo(){
      this.authservice.getinfo().then(data => {
-       console.log(data);
-       if(data.success){
+       console.log("userpage: " + data);
+       if(data['success']){
          var alert = this.alertCtrl.create({
-          title: data.success,
-          subTitle: data.msg,
+          title: data['success'],
+          subTitle: data['msg'],
           buttons: ['ok']
         });
         alert.present();
