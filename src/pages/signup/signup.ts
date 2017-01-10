@@ -6,7 +6,8 @@ import {AuthService} from '../home/authservice';
 
 @Component({
   selector: 'page-signup',
-  templateUrl: 'signup.html'
+  templateUrl: 'signup.html',
+    providers: [AuthService]
 })
 export class SignupPage {
   loginPage = HomePage;

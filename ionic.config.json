@@ -1,6 +1,16 @@
 {
-  "name": "myCalculator",
+  "name": "myLoginApp",
   "app_id": "",
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "proxies":[
+    {
+      "path": "/fetch_speakers",
+      "proxyUrl": "http://event.ycycnow.com/"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "http://localhost/ionic_cms/api/"
+    }
+  ]
 }

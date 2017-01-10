@@ -3,4 +3,6 @@ www/build/main.js
 www/build/main.js.map
 platforms/*
 .DS_Store
+.vscode/*
+
 
