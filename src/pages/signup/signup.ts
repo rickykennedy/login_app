@@ -13,22 +13,35 @@ export class SignupPage {
   loginPage = HomePage;
   newcreds = {
             name: '',
-            password: ''
+            email: '',
+            password: '',
+            // confirm_password:''
         }
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertCtrl: AlertController) {
         this.authservice = authservice;
         this.navCtrl = navCtrl;
   }
-  register(user) {
-        this.authservice.adduser(user).then(data => {
-            if(data) {
-                var alert = this.alertCtrl.create({
+  register(newcreds) {
+      this.authservice.adduser(newcreds).then(data => {
+          if (data) {
+              console.log("data true: ");
+                let alert = this.alertCtrl.create({
                     title: 'Success',
-                    subTitle: 'User Created',
+                    subTitle: 'Your account has been created.',
                     buttons: ['ok']
                 });
-                alert.present();
-            }
+              alert.present();
+              console.log(data);
+          } else {
+              let alert = this.alertCtrl.create({
+                    title: 'Fail',
+                    subTitle: 'Fail to create user',
+                    buttons: ['ok']
+                });
+              console.log("data false: ");
+              alert.present();
+          }
+        console.log("alert: ");
     });
   }
 }

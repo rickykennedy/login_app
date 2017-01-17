@@ -87,17 +87,22 @@ export class AuthService {
         });
     }
     adduser(user) {
-        var creds = "name=" + user.name + "&password=" + user.password;
+        var creds = "name=" + user.name + "&email=" + user.email+ "&password=" + user.password;
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         headers.append("Access-Control-Allow-Origin", "*");
         return new Promise(resolve => {
-            this.http.post('/api/user/create', creds, {headers: headers}).subscribe(data => {
-                if(data.json().success){
+            this.http.post('/api/user/create', creds, { headers: headers }).subscribe(data => {
+                console.log("inside promise");
+                console.log(data);
+                console.log("json");
+                console.log(data.json());
+                if(data.json().status == "200"){
                     resolve(true);
-                }
-                else
+                }else {
                     resolve(false);
+                }
+                    
             });
         });
     }

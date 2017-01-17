@@ -4,6 +4,7 @@ page-home {
 	}
 	.home-background{
 		background: url("/assets/images/home.jpg") !important;
+		// overflow: hidden;
 	}
 	.logo{
 		display: block;
@@ -36,8 +37,12 @@ page-home {
 		color: #ffffff;
 	}
 	.scroll-content{
-		overflow-y: auto;
+		overflow-y: hidden;
 		contain: content;
 		margin:20px 20px 0px 20px;
+
 	}
+	// .no-scroll .scroll-content{
+    //  overflow: hidden;
+	// }
 }

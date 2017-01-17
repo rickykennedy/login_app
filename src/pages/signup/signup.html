@@ -3,30 +3,29 @@
     <img class="logo" src="assets/images/app-logo.png" alt="yellowcube" >
 
 	  <ion-item class="input-item">
-	    <ion-label floating>Fullname:</ion-label>
-	    <ion-input type="text" [(ngModel)]="name1"></ion-input>
+	    <ion-input placeholder="Username" type="text" [(ngModel)]="newcreds.name"></ion-input>
 	  </ion-item>
 
 	  <ion-item class="input-item">
-	    <ion-label floating>Email:</ion-label>
-	    <ion-input type="email" [(ngModel)]="email"></ion-input>
+	    <ion-input placeholder="Email" type="email" [(ngModel)]="newcreds.email"></ion-input>
 	  </ion-item>
 
 	  <ion-item class="input-item">
-	    <ion-label floating>Password:</ion-label>
-	    <ion-input type="password" [(ngModel)]="password"></ion-input>
+	    <ion-input  placeholder="Password"type="password" [(ngModel)]="newcreds.password"></ion-input>
 	  </ion-item>
 
-    <ion-item class="input-item">
+    <!--<ion-item class="input-item">
     	<ion-label floating>Confirm Password:</ion-label>
-      <ion-input type="password" [(ngModel)]="confirm_password"></ion-input>
-    </ion-item>
+      <ion-input type="password" [(ngModel)]="newcreds.confirm_password"></ion-input>
+    </ion-item>-->
 
-    <button ion-item class="signup-btn" (click)="buttonClick()" color="primary">
+    <button ion-item class="signup-btn" (click)="register(newcreds)" color="primary">
       Sign Up
     </button>
 
-
+<button ion-item class="signup-btn" (click)="register(newcreds)" color="danger">
+      Sign Up with Google
+    </button>
 	</ion-list>
   <div class="login-link">
     <a href="#" [navPush]="loginPage">Already a member?</a>

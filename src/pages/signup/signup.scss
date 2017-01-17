@@ -1,6 +1,10 @@
 page-signup {
 	.home-background{
 		background: url("/assets/images/home.jpg") !important;
+		background-attachment: fixed;
+    	background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	.logo{
 		display: block;
@@ -13,27 +17,28 @@ page-signup {
     // width: 100%;
 	}
 	.input-item{
+		
 		// opacity: 0.9;
 	}
 	.signup-btn{
 		// width: 100%;
 		// background-color: #387ef5;
 		// opacity:0.9;
-		margin-top: 20px;
-    text-align: center;
-		margin-bottom: 20px;
+		margin-top: 10px;
+    	text-align: center;
+		margin-bottom: 10px;
 	}
 	.login-link{
-		margin-top: 20px;
+		margin-top: 10px;
 		text-align: center;
 	}
 	.login-link a{
-    font-size: 18px;
+    	font-size: 18px;
 		text-decoration: none;
 		color: #ffffff;
 	}
 	.scroll-content{
-		overflow-y: auto;
+		overflow-y: hidden;
 		contain: content;
 		margin:20px 20px 0px 20px;
 	}
