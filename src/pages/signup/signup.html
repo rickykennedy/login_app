@@ -1,19 +1,6 @@
 
 <ion-content class="home-background">
-  <div style="width:100%;min-height:20%;color:red;">this is a test</div>
-  <!--<div style="color:lightseagreen;height:auto;overflow:auto;">-->
-    <!--<p>nice work</p>
-    <p>nice work1</p>
-    <p>nice work2</p>
-    <p>nice work3</p>
-    <p>nice wor4</p>
-    <p>nice work5</p>
-    <p>nice work6</p>
-    <p>nice work7</p>
-    <p>nice work8</p>
-  </div>-->
-  <ion-scroll scrollY="true" style="height:100%;">
-  <ion-list style="overflow:auto;min-height:70%;">
+  <ion-list>
     <img class="logo" src="assets/images/app-logo.png" alt="yellowcube" >
 
 	  <ion-item class="input-item">
@@ -37,29 +24,11 @@
       Sign Up
     </button>
 
-<button ion-item class="signup-btn" (click)="register(newcreds)" color="danger">
-      Sign Up with Google1
-    </button>
     <button ion-item class="signup-btn" (click)="register(newcreds)" color="danger">
-      Sign Up with Google2
+      Sign Up with Google
     </button>
-    <button ion-item class="signup-btn" (click)="register(newcreds)" color="danger">
-      Sign Up with Google3
-    </button>
-    <button ion-item class="signup-btn" (click)="register(newcreds)" color="danger">
-      Sign Up with Google4
-    </button>
-    <button ion-item class="signup-btn" (click)="register(newcreds)" color="danger">
-      Sign Up with Google5
-    </button>
-    <button ion-item class="signup-btn" (click)="register(newcreds)" color="danger">
-      Sign Up with Google6
-    </button>
-
 	</ion-list>
-  </ion-scroll>
-  <!--</div>-->
-  <div class="login-link" style="min-height:10%;">
+  <div class="login-link">
     <a href="#" [navPush]="loginPage">Already a member?</a>
     <!-- <a href="#/loginPage" [navPush]="loginPage">Already a member?</a> -->
   </div>

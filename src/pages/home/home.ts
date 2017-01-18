@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {SignupPage} from '../signup/signup';
 import {UserPage} from '../userpage/userpage';
-import {AuthService} from './authservice';
+// import {AuthService} from './authservice';
+import { AuthService } from "../../providers/authservice";
 
 @Component({
   selector: 'page-home',
