@@ -5,6 +5,7 @@ import {Http, Headers} from '@angular/http';
 export class AuthService {
     isLoggedin: boolean;
     AuthToken;
+    userInfo: any;
     constructor(public http: Http) {
         this.http = http;
         this.isLoggedin = false;
@@ -50,7 +51,6 @@ export class AuthService {
                 // console.log
                 if(data.status == 200 && data.statusText == "OK"){
                     console.log("success");
-                    
                     console.log(data.json());
                     // this.storeUserCredentials(data.json().token);
                     // resolve(true);
@@ -62,22 +62,27 @@ export class AuthService {
             });
         });
     }
+
     authenticate(user) {
-        var creds = "name=" + user.name + "&password=" + user.password;
+        var creds = "email=" + user.email + "&password=" + user.password;
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         return new Promise(resolve => {
             this.http.post('/api/user/authenticate', creds, {headers: headers}).subscribe(data => {
                 console.log("authenticate data: " + data);
-                if(data.json().success){
-                    this.storeUserCredentials(data.json().token);
+                if (data.json().status == "200") {
+                    this.userInfo = data.json();
+                    // this.storeUserCredentials(data.json().token);
                     resolve(true);
                 }
-                else
+                else {
                     resolve(false);
+                }
+                    
             });
         });
     }
+
     adduser(user) {
         var creds = "name=" + user.name + "&email=" + user.email+ "&password=" + user.password;
         var headers = new Headers();
