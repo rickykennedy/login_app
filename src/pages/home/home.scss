@@ -3,7 +3,15 @@ page-home {
 		font-size: 200%;
 	}
 	.home-background{
+		// background: url("/assets/images/home.jpg") no-repeat center center fixed !important;
 		background: url("/assets/images/home.jpg") !important;
+    	background-repeat: no-repeat !important;
+		background-attachment: fixed !important;
+		background-position: center !important;
+		background-size: cover !important;
+		-webkit-background-size: cover !important;
+		-moz-background-size: cover !important;
+		-o-background-size: cover !important;
 		// overflow: hidden;
 	}
 	.logo{

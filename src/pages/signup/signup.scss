@@ -1,10 +1,13 @@
 page-signup {
 	.home-background{
 		background: url("/assets/images/home.jpg") !important;
-		background-attachment: fixed;
-    	background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
+		background-attachment: fixed !important;
+    	background-position: center !important;
+		background-repeat: no-repeat !important;
+		background-size: cover !important;
+		-webkit-background-size: cover !important;
+		-moz-background-size: cover !important;
+		-o-background-size: cover !important;
 	}
 	.logo{
 		display: block;
