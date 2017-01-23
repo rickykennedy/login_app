@@ -5,15 +5,56 @@ import {Http, Headers} from '@angular/http';
 export class AuthService {
     isLoggedin: boolean;
     AuthToken;
-    userInfo: any;
+    userInfo = {
+        id: '',
+        email: '',
+        username: ''
+    };
+    abc: string;
     constructor(public http: Http) {
         this.http = http;
         this.isLoggedin = false;
         this.AuthToken = null;
     }
-
+    /**
+     * userInfo must already be stringify using JSON.stringify() function
+     */
+    storeUserInfo(userInfo) {
+        // console.log("store: ");
+        // console.log(userInfo);
+        // console.log(JSON.stringify(userInfo));
+        window.localStorage.setItem('userInfo', userInfo);
+        this.useUserInfo(userInfo);
+    }
+    useUserInfo(userInfo) {
+    //     console.log("input: ");
+    //     console.log(userInfo);
+    //     console.log('\n');
+    //                 // console.log(JSON.stringify(userInfo));
+    //     console.log("userinfo:");
+    //                 console.log(this.userInfo);
+    //                 console.log(JSON.stringify(this.userInfo));
+                    this.userInfo = userInfo;
+                    // this.userInfo.id = userInfo.id;
+                    // this.userInfo.username = userInfo.username;
+                    // this.userInfo.email = userInfo.email;
+        // console.log("After userinfo:");
+        //             console.log(this.userInfo);
+                    // console.log(JSON.stringify(this.userInfo));
+    }
+    loadUserInfo() {
+        var userInfo = JSON.parse(window.localStorage.getItem('userInfo'));
+        // console.log("load: ");
+        // console.log(userInfo);
+        // console.log(JSON.stringify(userInfo));
+        this.useUserInfo(userInfo);
+    }
+    destroyUserInfo() {
+        this.userInfo = null;
+        window.localStorage.clear();
+    }
     storeUserCredentials(token) {
-        window.localStorage.setItem('test', token);
+        window.localStorage.setItem('token', token);
         this.useCredentials(token);
 
     }
@@ -24,7 +65,7 @@ export class AuthService {
     }
 
     loadUserCredentials() {
-        var token = window.localStorage.getItem('test');
+        var token = window.localStorage.getItem('token');
         this.useCredentials(token);
     }
 
@@ -69,9 +110,29 @@ export class AuthService {
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         return new Promise(resolve => {
             this.http.post('/api/user/authenticate', creds, {headers: headers}).subscribe(data => {
-                console.log("authenticate data: " + data);
+                // console.log("authenticate data: " + data);
                 if (data.json().status == "200") {
-                    this.userInfo = data.json();
+                    console.log("authenticate data:");
+                    console.log(JSON.stringify(data.json()));
+                    // console.log("check data:");
+                    // console.log(JSON.stringify(data));
+                    // console.log('id: ' + data.json().id);
+                    // console.log('id: ' + data.json()['id']);
+                    // console.log('id: ' + JSON.stringify(data.json().id));
+                    // console.log('id: ' + JSON.stringify(data.json()['id']));
+                    let userInfo = {
+                        id:data.json().id,
+                        username:data.json().name,
+                        email:data.json().email,
+                    }
+                    this.storeUserInfo(JSON.stringify(userInfo));
+                    // this.userInfo.id = data.json()['id'];
+                    // this.userInfo.username = data.json()['name'];
+                    // this.userInfo.email = data.json()['email'];
+                    // console.log("userinfo:");
+                    // console.log(this.userInfo);
+                    // console.log(JSON.stringify(this.userInfo));
+                    // this.userInfo = JSON.stringify(data.json());
                     // this.storeUserCredentials(data.json().token);
                     resolve(true);
                 }
@@ -104,6 +165,15 @@ export class AuthService {
         });
     }
 
+  test(){
+    return new Promise((resolve,reject)=>{
+        this.abc = 'anc';
+        return resolve(this.abc);
+    
+        
+    });     
+  }
+
     getinfo() {
         return new Promise(resolve => {
             var headers = new Headers();
@@ -121,6 +191,7 @@ export class AuthService {
     }
 
     logout() {
-        this.destroyUserCredentials();
+        // this.destroyUserCredentials();
+        this.destroyUserInfo();
     }
 }

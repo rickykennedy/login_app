@@ -14,3 +14,26 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+$SIDEMENU_TOP : #1e5799;
+$SIDEMENU_BOTTOM: #a5c9e5;
+.scroll-content{
+  overflow-y: overlay;
+}
+.side-menu{
+  background: -webkit-linear-gradient(left top, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: -o-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  background: linear-gradient(to bottom right, $SIDEMENU_TOP, $SIDEMENU_BOTTOM);
+  // color: #ffffff;
+}
+.profile-image{
+  img{
+    border-radius:50%;
+    margin-top:10px;
+    border: 4px solid rgba(255,255,255,0.4);
+  }
+}
+.item-icon{
+  opacity: 0.5;
+}

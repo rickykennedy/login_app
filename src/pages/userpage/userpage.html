@@ -7,14 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>userpage</ion-title>
+    <button ion-button start menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>User</ion-title>
+    
+    <!--rickyicezz@gmail.com-->
+    <ion-buttons end>
+      <button ion-button (click)="settings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
       <h2>You are logged in, {{usercred.username}}</h2>
       <button (click) = "logout()">Logout!!</button>
 </ion-content>

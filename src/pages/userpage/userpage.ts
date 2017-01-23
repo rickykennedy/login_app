@@ -23,11 +23,20 @@ export class UserPage {
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertCtrl: AlertController) {
     this.authservice = authservice;
     this.navCtrl = navCtrl;
+    // console.log("authservice");
+    // console.log(JSON.stringify(this.authservice.userInfo));
+    this.authservice.loadUserInfo();
+    // console.log("after authservice");
+    // console.log(this.authservice.userInfo);
+    this.usercred = this.authservice.userInfo;
     // this.usercred.id = this.authservice.userInfo.id;
-    // this.usercred.
-    // this.usercred.id = this.authservice.userInfo.id;
-    //   this.usercred.email = this.authservice.userInfo.email;
+    // this.usercred.email = this.authservice.userInfo.email;
+    // this.usercred.username = this.authservice.userInfo.username;
     //   this.usercred.password = this.authservice.userInfo.password;
+    console.log("usercred");
+    // console.log(this.usercred);
+    console.log(JSON.stringify(this.usercred));
+    // console.log(this.usercred.username);
   }
 
   ionViewDidLoad() {
@@ -50,4 +59,10 @@ export class UserPage {
        }
      });
    }
+   menuToggle() {
+     console.log("menu toggle");
+   }
+   settings() {
+     console.log("setting page");
+  }
 }

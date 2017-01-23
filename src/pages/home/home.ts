@@ -23,11 +23,11 @@ export class HomePage {
 
   }
   login(user) {
-      console.log("user: " + user);
+    //   console.log("user: " + user);
         this.authservice.authenticate(user).then(data => {
-            console.log(data);
+            // console.log(data);
             if(data){
-                console.log('success');
+                console.log('Login - success');
                 let alert = this.alertCtrl.create({
                     title: 'Success',
                     subTitle: 'Login Successfully.',
@@ -36,7 +36,7 @@ export class HomePage {
                 alert.present();
                 this.navCtrl.setRoot(UserPage);
             }else{
-                console.log("failed");
+                console.log("Login - failed");
                 let alert = this.alertCtrl.create({
                     title: 'Failed',
                     subTitle: 'Please insert valid email and password.',
