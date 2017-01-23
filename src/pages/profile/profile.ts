@@ -17,11 +17,16 @@ import { Page1 } from '../page1/page1';
   providers: [AuthService, Database]
 })
 export class Profile {
+  usercred :any;
 //   private observable: Observable;
     counter: any;
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertCtrl: AlertController) {
     this.counter = 0;
     this.authservice = authservice;
+    this.authservice.loadUserInfo();
+    this.usercred = this.authservice.userInfo;
+    console.log("usercred @profile ");
+    console.log(JSON.stringify(this.usercred));
   }
   
   fetchList(){

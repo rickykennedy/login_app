@@ -9,6 +9,7 @@ import { UserPage } from '../pages/userpage/userpage';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { Profile } from '../pages/profile/profile';
+import { Setting } from '../pages/setting/setting';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Profile } from '../pages/profile/profile';
     UserPage,
     Page1,
     Page2,
-    Profile
+    Profile,
+    Setting
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +37,8 @@ import { Profile } from '../pages/profile/profile';
     UserPage,
     Page1,
     Page2,
-    Profile
+    Profile,
+    Setting
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

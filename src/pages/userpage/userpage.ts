@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { AuthService } from "../../providers/authservice";
 import {HomePage} from '../home/home';
+import {Setting} from '../setting/setting';
 
 /*
   Generated class for the Userpage page.
@@ -15,11 +16,7 @@ import {HomePage} from '../home/home';
     providers: [AuthService,UserPage]
 })
 export class UserPage {
-  usercred = {
-    id: '1',
-    email: 'rickykennedy.development@gmail.com',
-    username: '123456'
-  };
+  usercred :any;
   constructor(public navCtrl: NavController, public authservice: AuthService, public alertCtrl: AlertController) {
     this.authservice = authservice;
     this.navCtrl = navCtrl;
@@ -64,5 +61,6 @@ export class UserPage {
    }
    settings() {
      console.log("setting page");
+     this.navCtrl.setRoot(Setting);
   }
 }

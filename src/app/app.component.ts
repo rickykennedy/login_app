@@ -4,7 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
-// import { HomePage } from '../pages/home/home';
+import { UserPage } from '../pages/userpage/userpage';
 import { Profile } from '../pages/profile/profile';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
@@ -28,10 +28,10 @@ export class MyApp {
     });
     // used for an example of ngFor and navigation
     this.pages = [
+      { title: 'Dashboard', component: UserPage, icon:'send'},
       { title: 'Profile', component: Profile , icon:'contact'},
       { title: 'Page One', component: Page1 , icon:'archive'},
-      { title: 'Page Two', component: Page2 ,icon:'send'},
-      // { title: 'Pokemon', component: Pokemon ,icon:'send'},
+      { title: 'Page Two', component: Page2 ,icon:'send'}
     ];
   }
   openPage(page) {
